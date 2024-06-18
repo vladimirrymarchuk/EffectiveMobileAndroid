@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.airtikets.AirTickets">
+
+    <TextView
+        android:id="@+id/text_dashboard"
+        android:layout_width="218dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="s"
+        android:text="Поиск дешевых авиабилетов"
+        android:textAlignment="center"
+        android:textColor="@color/grey7"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="350dp"
+        android:layout_height="119dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        app:cardBackgroundColor="@color/grey4"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_dashboard">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="311dp"
+            android:layout_height="94dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="13dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+
+
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginVertical="32dp"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/search"
+                app:tint="@color/grey1"
+                android:contentDescription="search" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/searchField1"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="@string/searchFieldHint1"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/grey7" />
+
+
+                <EditText
+                    android:id="@+id/SearchField2"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="@string/searchFieldHint2"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="377dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="5dp"
+        android:text="Музыкально отлететь"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/offersView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
