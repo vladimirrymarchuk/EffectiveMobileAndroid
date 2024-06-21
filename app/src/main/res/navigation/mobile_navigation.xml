@@ -9,7 +9,11 @@
         android:id="@+id/navigation_air_tikets"
         android:name="com.example.effectivemobile.ui.airtikets.AirTickets"
         android:label="@string/title_air_tikets"
-        tools:layout="@layout/fragment_air_tikets"/>
+        tools:layout="@layout/fragment_air_tikets">
+        <action
+            android:id="@+id/action_navigation_air_tikets_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_hotels"
@@ -34,4 +38,25 @@
         android:name="com.example.effectivemobile.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile"/>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.effectivemobile.ui.airtikets.Search"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_navigation_air_tikets"
+            app:destination="@id/navigation_air_tikets" />
+        <action
+            android:id="@+id/action_searchFragment_to_allTickets"
+            app:destination="@id/allTickets" />
+    </fragment>
+    <fragment
+        android:id="@+id/allTickets"
+        android:name="com.example.effectivemobile.ui.airtikets.AllTickets"
+        android:label="fragment_all_tickets"
+        tools:layout="@layout/fragment_all_tickets" >
+        <action
+            android:id="@+id/action_allTickets_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>

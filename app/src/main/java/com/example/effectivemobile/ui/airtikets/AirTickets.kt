@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.effectivemobile.databinding.FragmentAirTiketsBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,33 +25,41 @@ class AirTickets : Fragment() {
 
     private val viewModel: AirTicketsViewModel by viewModel()
 
-    private var _binding: FragmentAirTiketsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentAirTiketsBinding
 
     private lateinit var offerAdapter: OfferAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.getOffers()
-        lifecycleScope.launch {
-            viewModel.offers.collect {
-                offerAdapter = OfferAdapter(it)
-            }
-        }
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAirTiketsBinding.inflate(inflater, container, false)
+        binding = FragmentAirTiketsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
-        binding.searchIcon.setOnClickListener {
-            Toast.makeText(context, "Клик", Toast.LENGTH_SHORT).show()
+        lifecycleScope.launch {
+            viewModel.offers.collect {
+                offerAdapter = OfferAdapter(it)
+                init()
+            }
+        }
+        binding.apply {
+            if (viewModel.placeA != "") {
+                searchField1.setText(viewModel.placeA)
+            }
+            searchField1.addTextChangedListener {
+                viewModel.placeA = it.toString()
+            }
+            searchIcon.setOnClickListener {
+                Toast.makeText(context, "Клик", Toast.LENGTH_SHORT).show()
+            }
+            searchField2.setOnClickListener {
+                viewModel.savePlaceA()
+                val bottomSheet = BottomSheetSearch(viewModel)
+                bottomSheet.show(parentFragmentManager, "bottomSheetSearch")
+            }
         }
     }
 
@@ -59,8 +70,8 @@ class AirTickets : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onDestroy() {
+        viewModel.savePlaceA()
+        super.onDestroy()
     }
 }

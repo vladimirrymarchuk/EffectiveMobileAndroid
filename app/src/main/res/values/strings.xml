@@ -8,6 +8,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="searchFieldHint1">Откуда - Минск</string>
-    <string name="searchFieldHint2">Куда - Турция</string>
+    <string name="search_field_hint1">Откуда - Минск</string>
+    <string name="search_field_hint2">Куда - Турция</string>
+    <string name="difficult_route">Cложный маршрут</string>
+    <string name="hot_weekend">Горячие билеты</string>
+    <string name="weekend">Выходные</string>
+    <string name="anywhere">Куда угодно</string>
+    <string name="istanbul">Стамбул</string>
+    <string name="popular_direction">Популярное направление</string>
+    <string name="phuket">Пхукет</string>
+    <string name="sochi">Сочи</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

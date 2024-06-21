@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.effectivemobile.R
 import com.example.effectivemobile.databinding.OfferItemBinding
-import com.example.effectivemobile.models.Offer
+import com.example.effectivemobile.models.OfferItem
 
-class OfferAdapter(private val offerList: List<Offer>) : RecyclerView.Adapter<OfferAdapter.OfferHolder>() {
+class OfferAdapter(private val offerList: List<OfferItem>) : RecyclerView.Adapter<OfferAdapter.OfferHolder>() {
 
     class OfferHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = OfferItemBinding.bind(itemView)
 
-        fun bind(offer: Offer) = with(binding) {
+        fun bind(offer: OfferItem) = with(binding) {
             imageView.setImageResource(offer.imageId)
             town.text = offer.town
             price.text = offer.price

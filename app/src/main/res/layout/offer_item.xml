@@ -49,6 +49,7 @@
             android:layout_margin="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_regular"
             android:text="TextView" />
 
 
@@ -71,6 +72,7 @@
                 android:layout_marginHorizontal="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_regular"
                 android:text="TextView" />
         </LinearLayout>
 

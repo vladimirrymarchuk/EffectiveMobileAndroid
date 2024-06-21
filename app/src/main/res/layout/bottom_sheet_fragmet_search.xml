@@ -3,15 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/grey4"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="411dp"
-        android:layout_height="730dp"
-        android:layout_marginStart="1dp"
+        android:layout_width="409dp"
+        android:layout_height="727dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,23 +18,25 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="50dp"
+            android:id="@+id/dismissBtn"
+            android:layout_width="38dp"
             android:layout_height="5dp"
+            android:layout_gravity="center"
             android:layout_marginVertical="20dp"
-            android:layout_marginHorizontal="180.5dp"
-            android:backgroundTint="@color/grey6"/>
+            android:backgroundTint="@color/grey5" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="94dp"
-            android:layout_marginHorizontal="54dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="24dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="14dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -47,21 +46,21 @@
 
                     <ImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_marginVertical="11.5dp"
                         app:srcCompat="@drawable/plane" />
 
                     <EditText
-                        android:id="@+id/SearchField1"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/searchField1"
+                        android:layout_width="0dp"
                         android:layout_height="47dp"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="10dp"
                         android:layout_weight="1"
-
+                        android:fontFamily="@font/sf_pro_display_medium"
                         android:background="@android:color/transparent"
                         android:ems="10"
-                        android:hint="@string/searchFieldHint1"
+                        android:hint="@string/search_field_hint1"
                         android:inputType="text"
                         android:textSize="14sp" />
 
@@ -71,7 +70,7 @@
                     android:id="@+id/view"
                     android:layout_width="wrap_content"
                     android:layout_height="0.5dp"
-                    android:background="@color/grey7" />
+                    android:background="@color/grey5" />
 
 
                 <LinearLayout
@@ -80,29 +79,280 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:id="@+id/searchBtn"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_marginVertical="11.5dp"
                         app:srcCompat="@drawable/search" />
 
 
                     <EditText
-                        android:id="@+id/SearchField2"
+                        android:id="@+id/searchField2"
                         android:layout_width="0dp"
                         android:layout_height="47dp"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="10dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/sf_pro_display_medium"
                         android:background="@android:color/transparent"
                         android:ems="10"
-                        android:hint="@string/searchFieldHint2"
+                        android:hint="@string/search_field_hint2"
                         android:inputType="text"
                         android:textSize="14sp" />
 
+                    <ImageButton
+                        android:id="@+id/delete"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:backgroundTint="@android:color/transparent"
+                        app:srcCompat="@drawable/delete" />
 
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24dp"
+            android:layout_marginHorizontal="24dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="87dp"
+                android:layout_height="90dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/difficultRouteBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/imagebtn"
+                    android:backgroundTint="@color/green"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/difficult_route" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficult_route"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="94dp"
+                android:layout_height="90dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/anyWhereBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/blue"
+                    android:background="@drawable/imagebtn"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ball" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anywhere"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="94dp"
+                android:layout_height="90dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/weekendBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/imagebtn"
+                    android:backgroundTint="@color/dark_blue"
+                    android:layout_marginHorizontal="24dp"
+                    app:srcCompat="@drawable/weekend" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:text="@string/weekend"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="87dp"
+                android:layout_height="90dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/hotWeekendBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/imagebtn"
+                    android:layout_marginHorizontal="24dp"
+                    android:backgroundTint="@color/red"
+                    app:srcCompat="@drawable/fire" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/hot_weekend"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:layout_marginHorizontal="24dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/item1"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/istanbul" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginVertical="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/istanbul"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/popular_direction"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:textColor="@color/grey6"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:background="@color/grey5" />
+
+
+                <LinearLayout
+                    android:id="@+id/item2"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/sochi" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginVertical="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sochi"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/popular_direction"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+
+                            android:textColor="@color/grey6"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:background="@color/grey5" />
+
+
+                <LinearLayout
+                    android:id="@+id/item3"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/phuket" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginVertical="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/phuket"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/popular_direction"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:textColor="@color/grey6"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

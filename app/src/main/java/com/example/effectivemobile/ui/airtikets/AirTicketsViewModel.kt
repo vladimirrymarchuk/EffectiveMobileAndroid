@@ -3,51 +3,38 @@ package com.example.effectivemobile.ui.airtikets
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecase.GetOffersUseCase
-import com.example.effectivemobile.R
-import com.example.effectivemobile.models.Offer
+import com.example.domain.usecase.GetPlaceAUseCase
+import com.example.domain.usecase.SavePlaceAUseCase
+import com.example.effectivemobile.models.OfferItem
+import com.example.effectivemobile.models.mapper.asOfferItemList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class AirTicketsViewModel(private val getOffersUseCase: GetOffersUseCase) : ViewModel() {
-    private val _offers = MutableStateFlow<List<Offer>>(emptyList())
-    val offers: StateFlow<List<Offer>> = _offers
+class AirTicketsViewModel(
+    private val getOffersUseCase: GetOffersUseCase,
+    private val getPlaceAUseCase: GetPlaceAUseCase,
+    private val savePlaceAUseCase: SavePlaceAUseCase
+) : ViewModel() {
+    private val _offers = MutableStateFlow<List<OfferItem>>(emptyList())
+    val offers: StateFlow<List<OfferItem>> = _offers
 
-    private val images = listOf(
-        R.drawable.offer1,
-        R.drawable.offer2,
-        R.drawable.offer3
-    )
+    var placeA = ""
 
-    fun getOffers() {
+    init {
+        getOffers()
+        placeA = loadPlaceA()
+    }
+
+    private fun getOffers() {
         viewModelScope.launch(Dispatchers.IO) {
-//            launch {
-//                _offers.value = getOffersUseCase().mapIndexed { index, offer ->
-//                    Offer(
-//                        imageId = images[index % 3],
-//                        town = offer.town,
-//                        price = "От ${offer.price.value} ₽"
-//                    )
-//                }
-//            }
-            _offers.value = listOf(
-                Offer(
-                    imageId = R.drawable.offer1,
-                    town = "Mосква",
-                    price = "От 1000 ₽"
-                ),
-                Offer(
-                    imageId = R.drawable.offer2,
-                    town = "Mосква",
-                    price = "От 1000 ₽"
-                ),
-                Offer(
-                    imageId = R.drawable.offer3,
-                    town = "Mосква",
-                    price = "От 1000 ₽"
-                )
-            )
+            launch {
+                _offers.value = getOffersUseCase().asOfferItemList()
+           }
         }
     }
-}
+
+    private fun loadPlaceA() = getPlaceAUseCase() ?: ""
+    fun savePlaceA() = savePlaceAUseCase(placeA)
+ }
