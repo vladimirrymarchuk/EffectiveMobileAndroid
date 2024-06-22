@@ -86,7 +86,7 @@ class Search : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
             val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
-            caledarText.text = "$dayOfMonth ${Constant.MONTHS[month]}, ${Constant.DAYS[dayOfWeek]}"
+            caledarText.text = "$dayOfMonth ${Constant.MONTHS[month]}, ${Constant.DAYS[dayOfWeek % 7]}"
             allTicketsBtn.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("route", "${viewModel.placeA} - ${viewModel.placeB}")
