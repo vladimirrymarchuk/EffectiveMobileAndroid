@@ -68,12 +68,13 @@ class Search : Fragment() {
                 val year = calendar.get(Calendar.YEAR)
                 val month = calendar.get(Calendar.MONTH)
                 val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+
                 context?.let { it1 ->
                     DatePickerDialog(
                         it1,
                         { _, _, month, dayOfMonth ->
                             val selectedDate =
-                                "$dayOfMonth ${Constant.MONTHS[month]}, ${Constant.DAYS[dayOfWeek]}"
+                                "$dayOfMonth ${Constant.MONTHS[month]}, ${Constant.DAYS[dayOfWeek % 7 ]}"
                             caledarText.text = selectedDate
                         },
                         year,
