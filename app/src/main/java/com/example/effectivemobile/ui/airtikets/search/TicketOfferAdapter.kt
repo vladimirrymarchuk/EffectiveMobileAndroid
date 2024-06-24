@@ -1,4 +1,4 @@
-package com.example.effectivemobile.ui.airtikets.allTickets
+package com.example.effectivemobile.ui.airtikets.search
 
 import android.view.LayoutInflater
 import android.view.View

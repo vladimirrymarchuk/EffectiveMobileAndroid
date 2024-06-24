@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.effectivemobile.constant.Constant
 import com.example.effectivemobile.R
 import com.example.effectivemobile.databinding.FragmentSearchBinding
-import com.example.effectivemobile.ui.airtikets.allTickets.TicketOfferAdapter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
