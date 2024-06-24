@@ -2,7 +2,6 @@ package com.example.effectivemobile.ui.airtikets
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.models.Ticket
 import com.example.domain.usecase.GetTicketsUseCase
 import com.example.effectivemobile.models.TicketItem
 import com.example.effectivemobile.models.mapper.asTicketItemList
@@ -15,7 +14,7 @@ class AllTicketsViewModel(
 ) : ViewModel() {
 
     private val _tickets = MutableStateFlow<List<TicketItem>>(emptyList())
-    val ticket: StateFlow<List<TicketItem>> = _tickets
+    val tickets: StateFlow<List<TicketItem>> = _tickets
 
     init {
         loadTickets()

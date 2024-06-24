@@ -1,16 +1,15 @@
 package com.example.effectivemobile.ui.airtikets
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.effectivemobile.R
 import com.example.effectivemobile.constant.Constant
 import com.example.effectivemobile.databinding.FragmentAllTicketsBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,6 +18,8 @@ class AllTickets : Fragment() {
     private val viewModel: AllTicketsViewModel by viewModel()
 
     private lateinit var binding: FragmentAllTicketsBinding
+
+    private lateinit var ticketAdapter: TicketAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +42,7 @@ class AllTickets : Fragment() {
                 Constant.MAIN.navController.navigate(R.id.action_allTickets_to_searchFragment)
             }
             lifecycleScope.launch {
-                viewModel.ticket.collect { tickets ->
+                viewModel.tickets.collect { tickets ->
                     val item = tickets.find { item ->
                         item.comfortable
                     }
@@ -52,8 +53,20 @@ class AllTickets : Fragment() {
                         airportArrival.text = item.airports[1]
                         ticketInfo.text = ""
                     }
+                    val items = tickets.filter {
+                        !it.comfortable
+                    }
+                    ticketAdapter = TicketAdapter(items)
+                    init()
                 }
             }
+        }
+    }
+
+    private fun init() {
+        binding.tickets.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = ticketAdapter
         }
     }
 }
