@@ -1,4 +1,4 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.search
 
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.effectivemobile.constant.Constant
 import com.example.effectivemobile.R
 import com.example.effectivemobile.databinding.FragmentSearchBinding
-import kotlinx.coroutines.flow.collect
+import com.example.effectivemobile.ui.airtikets.allTickets.TicketOfferAdapter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class Search : Fragment() {
+class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 

@@ -1,14 +1,11 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.allTickets
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.effectivemobile.R
-import com.example.effectivemobile.constant.Constant
-import com.example.effectivemobile.databinding.OfferItemBinding
 import com.example.effectivemobile.databinding.TicketOfferItemBinding
-import com.example.effectivemobile.models.OfferItem
 import com.example.effectivemobile.models.TicketOfferItem
 
 class TicketOfferAdapter(private val ticketOfferList: List<TicketOfferItem>): RecyclerView.Adapter<TicketOfferAdapter.TicketOfferHolder>() {

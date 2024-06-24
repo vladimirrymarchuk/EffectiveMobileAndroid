@@ -1,4 +1,4 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.allTickets
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

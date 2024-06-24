@@ -1,10 +1,9 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.search
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.models.Ticket
 import com.example.effectivemobile.R
 import com.example.effectivemobile.databinding.TicketItemBinding
 import com.example.effectivemobile.models.TicketItem

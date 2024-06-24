@@ -1,4 +1,4 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.allTickets
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.effectivemobile.R
 import com.example.effectivemobile.constant.Constant
 import com.example.effectivemobile.databinding.FragmentAllTicketsBinding
+import com.example.effectivemobile.ui.airtikets.search.TicketAdapter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AllTickets : Fragment() {
+class AllTicketsFragment : Fragment() {
 
     private val viewModel: AllTicketsViewModel by viewModel()
 

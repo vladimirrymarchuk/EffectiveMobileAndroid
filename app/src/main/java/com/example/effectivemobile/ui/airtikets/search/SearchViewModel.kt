@@ -1,4 +1,4 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.search
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

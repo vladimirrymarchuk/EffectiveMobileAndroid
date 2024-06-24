@@ -7,12 +7,21 @@
 
     <fragment
         android:id="@+id/navigation_air_tikets"
-        android:name="com.example.effectivemobile.ui.airtikets.AirTickets"
+        android:name="com.example.effectivemobile.ui.airtikets.main.AirTicketsFragment"
         android:label="@string/title_air_tikets"
         tools:layout="@layout/fragment_air_tikets">
         <action
             android:id="@+id/action_navigation_air_tikets_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_navigation_air_tikets_to_hotTicketFragment3"
+            app:destination="@id/hotTicketFragment3" />
+        <action
+            android:id="@+id/action_navigation_air_tikets_to_weekendFragment3"
+            app:destination="@id/weekendFragment3" />
+        <action
+            android:id="@+id/action_navigation_air_tikets_to_dificultRouteFragment3"
+            app:destination="@id/dificultRouteFragment3" />
     </fragment>
 
     <fragment
@@ -40,7 +49,7 @@
         tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.effectivemobile.ui.airtikets.Search"
+        android:name="com.example.effectivemobile.ui.airtikets.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -52,11 +61,34 @@
     </fragment>
     <fragment
         android:id="@+id/allTickets"
-        android:name="com.example.effectivemobile.ui.airtikets.AllTickets"
+        android:name="com.example.effectivemobile.ui.airtikets.allTickets.AllTicketsFragment"
         android:label="fragment_all_tickets"
         tools:layout="@layout/fragment_all_tickets" >
         <action
             android:id="@+id/action_allTickets_to_searchFragment"
             app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dificultRouteFragment3"
+        android:name="com.example.effectivemobile.ui.airtikets.difficultRoute.DifficultRouteFragment"
+        android:label="fragment_dificult_route"
+        tools:layout="@layout/fragment_dificult_route" >
+        <action
+            android:id="@+id/action_dificultRouteFragment3_to_navigation_air_tikets"
+            app:destination="@id/navigation_air_tikets" />
+    </fragment>
+    <fragment
+        android:id="@+id/weekendFragment3"
+        android:name="com.example.effectivemobile.ui.airtikets.weekend.WeekendFragment"
+        android:label="fragment_weekend"
+        tools:layout="@layout/fragment_weekend" />
+    <fragment
+        android:id="@+id/hotTicketFragment3"
+        android:name="com.example.effectivemobile.ui.airtikets.hotTicket.HotTicketFragment"
+        android:label="fragment_hot_ticket"
+        tools:layout="@layout/fragment_hot_ticket" >
+        <action
+            android:id="@+id/action_hotTicketFragment3_to_navigation_air_tikets"
+            app:destination="@id/navigation_air_tikets" />
     </fragment>
 </navigation>

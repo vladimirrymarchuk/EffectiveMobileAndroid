@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".ui.airtikets.AllTickets">
+    tools:context=".ui.airtikets.allTickets.AllTicketsFragment">
 
 
 

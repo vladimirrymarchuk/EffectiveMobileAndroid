@@ -1,4 +1,4 @@
-package com.example.effectivemobile.ui.airtikets
+package com.example.effectivemobile.ui.airtikets.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -20,12 +20,12 @@ class OfferAdapter(private val offerList: List<OfferItem>) : RecyclerView.Adapte
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferAdapter.OfferHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.offer_item, parent, false)
         return OfferHolder(view)
     }
 
-    override fun onBindViewHolder(holder: OfferAdapter.OfferHolder, position: Int) {
+    override fun onBindViewHolder(holder: OfferHolder, position: Int) {
         holder.bind(offer = offerList[position])
     }
 
